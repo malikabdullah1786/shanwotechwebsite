@@ -113,6 +113,15 @@
   margin-bottom: 20px;
 }
 
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
 .phoneLink, .emailLink {
   display: flex;
   align-items: center;

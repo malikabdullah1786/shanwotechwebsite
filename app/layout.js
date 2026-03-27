@@ -12,7 +12,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Shanwo Tech | Agency Portfolio",
+  title: "Shanwo Tech",
   description: "3+ Years of Excellence | 10+ Happy Clients | Digital Transformation Agency | Contact: shanwo.tech@gmail.com",
 };
 

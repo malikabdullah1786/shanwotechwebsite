@@ -20,12 +20,13 @@ const schema = z.object({
 const Contact = () => {
   const searchParams = useSearchParams();
   const selectedService = searchParams.get('service');
+  const [status, setStatus] = React.useState('idle');
 
   const {
     register,
     handleSubmit,
     setValue,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset,
   } = useForm({
     resolver: zodResolver(schema),
@@ -41,13 +42,14 @@ const Contact = () => {
   }, [selectedService, setValue]);
 
   const onSubmit = async (data) => {
+    setStatus('sending');
     const result = await sendEmail(data);
     
     if (result.success) {
-      alert('Success! Your message has been sent to Shanwo Tech.');
+      setStatus('success');
       reset();
     } else {
-      alert('Oops! Something went wrong. If this persists, please email us directly at shanwo.tech@gmail.com');
+      setStatus('error');
       console.error(result.error);
     }
   };
@@ -95,56 +97,79 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-            <div className={styles.inputGroup}>
-              <label htmlFor="name">Full Name</label>
-              <input 
-                {...register('name')} 
-                type="text" 
-                placeholder="John Doe" 
-                className={errors.name ? styles.errorInput : ''}
-              />
-              {errors.name && <span className={styles.errorMessage}>{errors.name.message}</span>}
+          {status === 'success' ? (
+            <div className={styles.successMessage}>
+              <h3 className={styles.successTitle}>Message Sent!</h3>
+              <p className={styles.successText}>
+                Thank you for reaching out. Our team will review your inquiry and get back to you shortly.
+              </p>
+              <button 
+                onClick={() => setStatus('idle')} 
+                className={styles.submitBtn}
+                style={{ marginTop: '30px', padding: '12px 30px', fontSize: '1rem' }}
+              >
+                Send Another Message
+              </button>
             </div>
+          ) : (
+            <>
+              {status === 'error' && (
+                <div className={styles.errorFeedback}>
+                  Oops! Something went wrong. Please try again or email us directly at shanwo.tech@gmail.com
+                </div>
+              )}
+              <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="name">Full Name</label>
+                  <input 
+                    {...register('name')} 
+                    type="text" 
+                    placeholder="John Doe" 
+                    className={errors.name ? styles.errorInput : ''}
+                  />
+                  {errors.name && <span className={styles.errorMessage}>{errors.name.message}</span>}
+                </div>
 
-            <div className={styles.inputGroup}>
-              <label htmlFor="email">Email Address</label>
-              <input 
-                {...register('email')} 
-                type="email" 
-                placeholder="john@example.com"
-                className={errors.email ? styles.errorInput : ''}
-              />
-              {errors.email && <span className={styles.errorMessage}>{errors.email.message}</span>}
-            </div>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="email">Email Address</label>
+                  <input 
+                    {...register('email')} 
+                    type="email" 
+                    placeholder="john@example.com"
+                    className={errors.email ? styles.errorInput : ''}
+                  />
+                  {errors.email && <span className={styles.errorMessage}>{errors.email.message}</span>}
+                </div>
 
-            <div className={styles.inputGroup}>
-              <label htmlFor="service">Service Required</label>
-              <select {...register('service')} className={errors.service ? styles.errorInput : ''}>
-                <option value="">Select a service</option>
-                {servicesData.map(service => (
-                  <option key={service.slug} value={service.slug}>
-                    {service.title}
-                  </option>
-                ))}
-              </select>
-              {errors.service && <span className={styles.errorMessage}>{errors.service.message}</span>}
-            </div>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="service">Service Required</label>
+                  <select {...register('service')} className={errors.service ? styles.errorInput : ''}>
+                    <option value="">Select a service</option>
+                    {servicesData.map(service => (
+                      <option key={service.slug} value={service.slug}>
+                        {service.title}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.service && <span className={styles.errorMessage}>{errors.service.message}</span>}
+                </div>
 
-            <div className={styles.inputGroup}>
-              <label htmlFor="description">Project Description</label>
-              <textarea 
-                {...register('description')} 
-                placeholder="Tell us about your project goals..."
-                className={errors.description ? styles.errorInput : ''}
-              />
-              {errors.description && <span className={styles.errorMessage}>{errors.description.message}</span>}
-            </div>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="description">Project Description</label>
+                  <textarea 
+                    {...register('description')} 
+                    placeholder="Tell us about your project goals..."
+                    className={errors.description ? styles.errorInput : ''}
+                  />
+                  {errors.description && <span className={styles.errorMessage}>{errors.description.message}</span>}
+                </div>
 
-            <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
+                <button type="submit" disabled={status === 'sending'} className={styles.submitBtn}>
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+            </>
+          )}
           <div className={styles.formDecoration} />
         </motion.div>
       </div>

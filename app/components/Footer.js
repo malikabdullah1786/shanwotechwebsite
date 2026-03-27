@@ -11,9 +11,9 @@ const Footer = () => {
           {/* Brand Column */}
           <div className={styles.column}>
             <div className={styles.logoWrapper}>
-              <img 
-                src="/logo.png?v=1.1" 
-                alt="Shanwo Tech" 
+              <img
+                src="/logo.png?v=1.1"
+                alt="Shanwo Tech"
                 className={styles.logoImage}
                 style={{ width: '45px', height: '45px' }}
               />
@@ -54,17 +54,29 @@ const Footer = () => {
           <div className={styles.column}>
             <h4 className={styles.heading}>Information</h4>
             <div className={styles.infoItem}>
+              <a href="https://wa.me/4917643230832" target="_blank" rel="noopener noreferrer" className={styles.phoneLink}>
+                <FaWhatsapp className={`${styles.icon} ${styles.waIcon}`} />
+                <span>+49 176 43230832 (Germany Office)</span>
+              </a>
+            </div>
+            <div className={styles.infoRow}>
               <a href="https://wa.me/923094561786" target="_blank" rel="noopener noreferrer" className={styles.phoneLink}>
                 <FaWhatsapp className={`${styles.icon} ${styles.waIcon}`} />
                 <span>+92 309 4561786</span>
               </a>
+
             </div>
-            <div style={{ display: 'none' }} className={styles.infoItem}>
-              {/* Secondary number hidden if not needed, or just replaced */}
-            </div>
-            <div className={styles.infoItem}>
-              <a href="tel:+923065439634" className={styles.phoneLink}>
-                <FaPhoneAlt className={styles.icon} />
+            <div className={styles.infoRow}>
+              <a href="https://wa.me/923014444980" target="_blank" rel="noopener noreferrer" className={styles.phoneLink}>
+                <FaWhatsapp className={`${styles.icon} ${styles.waIcon}`} />
+                <span>+92 301 4444980</span>
+              </a>
+              <a href="https://wa.me/923262299941" target="_blank" rel="noopener noreferrer" className={styles.phoneLink}>
+                <FaWhatsapp className={`${styles.icon} ${styles.waIcon}`} />
+                <span>+92 326 2299941</span>
+              </a>
+              <a href="https://wa.me/923065439634" target="_blank" rel="noopener noreferrer" className={styles.phoneLink}>
+                <FaWhatsapp className={`${styles.icon} ${styles.waIcon}`} />
                 <span>+92 306 5439634</span>
               </a>
             </div>

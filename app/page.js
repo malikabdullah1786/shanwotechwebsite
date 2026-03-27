@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import Hero from './components/Hero';
 import ServicesGrid from './components/ServicesGrid';
 import TechMarquee from './components/TechMarquee';
@@ -88,7 +89,9 @@ export default function Home() {
         <PlaceholderSection title="Life at Shanwo" id="life" type="alt" items={lifeEvents} category="life" />
       </div>
       <div id="contact">
-        <Contact />
+        <Suspense fallback={null}>
+          <Contact />
+        </Suspense>
       </div>
       <Footer />
       <WhatsAppButton />

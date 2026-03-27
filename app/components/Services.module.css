@@ -1,0 +1,83 @@
+.services {
+  padding: 120px 5%;
+  background: var(--color-bg);
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #FFFFFF;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(197, 160, 89, 0.1);
+  padding: 50px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin-bottom: 30px;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.cardDescription {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.borderEffect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  transform-origin: left;
+}
+
+.card:hover .borderEffect {
+  transform: scaleX(1);
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 80px 5%;
+  }
+}

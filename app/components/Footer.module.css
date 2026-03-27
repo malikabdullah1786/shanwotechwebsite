@@ -1,0 +1,152 @@
+.footer {
+  background: #050505;
+  padding: 100px 5% 40px;
+  border-top: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 25px;
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+}
+
+.logoImage {
+  width: 150% !important;
+  height: 150% !important;
+  object-fit: contain;
+  transform: scale(1.15);
+}
+
+.tagline {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+}
+
+.socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.heading {
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.links {
+  list-style: none;
+}
+
+.links li {
+  margin-bottom: 15px;
+}
+
+.links a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--color-accent);
+  padding-left: 5px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.phoneLink, .emailLink {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.phoneLink:hover, .emailLink:hover {
+  color: var(--color-accent);
+}
+
+.waIcon {
+  color: #25D366 !important;
+}
+
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 40px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

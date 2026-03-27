@@ -1,0 +1,143 @@
+.portfolio {
+  padding: 120px 5%;
+  background: #0a0a0a;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 80px;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #FFFFFF;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.projectCard {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.projectCard:nth-child(even) {
+  direction: rtl;
+}
+
+.projectCard:nth-child(even) .details {
+  direction: ltr;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.badge {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 5px 15px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.details {
+  z-index: 2;
+}
+
+.projectTitle {
+  font-size: 2.5rem;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+}
+
+.projectCategory {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.projectContext {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.highlight {
+  background: rgba(197, 160, 89, 0.05);
+  border-left: 3px solid var(--color-accent);
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+}
+
+.testimonial {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+}
+
+.testimonial blockquote {
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.testimonial cite {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 968px) {
+  .projectCard {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    direction: ltr !important;
+  }
+  
+  .projectCard:nth-child(even) .details {
+    direction: ltr;
+  }
+}

@@ -1,0 +1,76 @@
+:root {
+  --color-primary: #002366; /* Royal Navy Blue */
+  --color-bg: #121212;      /* Charcoal Black */
+  --color-accent: #C5A059;  /* Brass/Gold accents */
+  --color-text-main: #FFFFFF;
+  --color-text-muted: #B0B0B0;
+  
+  --background: var(--color-bg);
+  --foreground: var(--color-text-main);
+  
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background: var(--color-bg);
+  color: var(--color-text-main);
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-accent);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+.premium-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(197, 160, 89, 0.2); /* Brass border */
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+}

@@ -1,0 +1,196 @@
+.contact {
+  padding: 120px 5%;
+  background: radial-gradient(circle at 90% 80%, rgba(197, 160, 89, 0.05) 0%, transparent 50%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+.title span {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.detail {
+  color: #FFFFFF;
+  font-size: 1rem;
+}
+
+.detail strong {
+  color: var(--color-accent);
+  margin-right: 10px;
+}
+
+.formWrapper {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 60px;
+  border: 1px solid rgba(197, 160, 89, 0.1);
+  position: relative;
+  backdrop-filter: blur(20px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputGroup label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.inputGroup textarea {
+  height: 120px;
+  resize: none;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.errorInput {
+  border-color: #ff4d4d !important;
+}
+
+.errorMessage {
+  color: #ff4d4d;
+  font-size: 0.75rem;
+}
+
+.submitBtn {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 18px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #FFFFFF;
+  transform: scale(1.02);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.formDecoration {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  border-top: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
+}
+
+@media (max-width: 968px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+  
+  .contactDetails {
+    align-items: center;
+  }
+
+  .formWrapper {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 80px 5%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .inputGroup input,
+  .inputGroup select,
+  .inputGroup textarea {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .submitBtn {
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  /* Ensure select dropdown options are readable on mobile */
+  .inputGroup select option {
+    background-color: #111;
+    color: #FFF;
+  }
+}

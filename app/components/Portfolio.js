@@ -85,7 +85,7 @@ const Portfolio = () => {
     {
       title: 'Partcify.com',
       category: 'Automobile E-Commerce',
-      year: '2023',
+      year: '2026',
       context: 'A dedicated e-commerce platform for Bilal Gunj’s complex auto parts market, connecting vendors to customers seamlessly.',
       highlight: 'Advanced database architecture for deep filtering by Make, Model, and Year.',
       image: '/images/partcify_laptop.png',
